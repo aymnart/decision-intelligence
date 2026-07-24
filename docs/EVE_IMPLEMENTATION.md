@@ -24,7 +24,7 @@ See `AI_COUNCIL.md`.
 
 # Purpose
 
-This document defines how to implement the AI Engineering Operating System using Vercel Eve.
+This document defines how to implement the Decision Intelligence Engine using Vercel Eve.
 
 Eve is used as the agent execution runtime.
 
@@ -194,7 +194,7 @@ Do not build custom Eve-agent council members before MVP validates autonomous as
 Recommended structure:
 
 ```
-ai-engineering-os/
+decision-intelligence/
 
 ├── apps/
 

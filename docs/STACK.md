@@ -8,6 +8,8 @@ Version: 2.0
 
 Yes. This is the correct architecture direction.
 
+The product is the **Decision Intelligence Engine** (`decision-intelligence`).
+
 AI Council is a **Dynamic Council Assembly Engine**, not a fixed group of experts.
 
 The stack supports a Decision Intelligence Engine that:
@@ -26,7 +28,7 @@ See `AI_COUNCIL.md`.
 
 # Purpose
 
-This document is the single source of truth for the technology stack of the AI Engineering Operating System.
+This document is the single source of truth for the technology stack of the Decision Intelligence Engine.
 
 Every architectural decision regarding technologies must originate here.
 

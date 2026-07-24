@@ -1,4 +1,4 @@
-# AI Engineering Operating System Task List
+# Decision Intelligence Engine Task List
 
 Version: 2.0
 

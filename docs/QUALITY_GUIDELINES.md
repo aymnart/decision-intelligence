@@ -1,4 +1,4 @@
-# AI Engineering Operating System Quality Guidelines
+# Decision Intelligence Engine Quality Guidelines
 
 Version: 2.0
 
@@ -16,7 +16,7 @@ See `AI_COUNCIL.md`.
 
 # Purpose
 
-This document defines the engineering quality standards for the AI Engineering Operating System.
+This document defines the engineering quality standards for the Decision Intelligence Engine.
 
 The system is designed to generate and maintain production-quality software.
 
@@ -910,7 +910,7 @@ Store:
 
 # Golden Rule
 
-The AI Engineering Operating System must produce software that a world-class engineering team would be proud to maintain.
+The Decision Intelligence Engine must produce software that a world-class engineering team would be proud to maintain.
 
 The goal is not generating more code.
 

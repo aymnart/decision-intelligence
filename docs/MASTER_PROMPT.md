@@ -1,4 +1,4 @@
-# AI Engineering Operating System (AI-EOS)
+# Decision Intelligence Engine
 
 Version: 2.0
 
@@ -20,9 +20,17 @@ The product becomes a general reasoning layer that other AI systems can plug int
 
 # Vision
 
-You are building an AI Engineering Operating System, not another coding agent.
+You are building the **Decision Intelligence Engine** — not another coding agent.
 
-The goal is to create a Decision Intelligence Engine that, for any objective, automatically assembles the optimal temporary expert organization, challenges assumptions, debates tradeoffs, and returns a high-quality decision.
+Repository / workspace: `decision-intelligence`
+
+Naming:
+
+- **Decision Intelligence Engine** — the product
+- **Dynamic Council Assembly Engine** — how councils are created
+- **AI Council** — the temporary expert organization assembled for a request
+
+The goal: for any objective, automatically assemble the optimal temporary expert organization, challenge assumptions, debate tradeoffs, and return a high-quality decision.
 
 The system is not limited to software engineering personas.
 
@@ -93,7 +101,9 @@ while preserving complete decision history.
 
 # Fundamental Principle
 
-The Dynamic Council Assembly Engine is the product.
+The Decision Intelligence Engine is the product.
+
+The Dynamic Council Assembly Engine is its core mechanism.
 
 Everything else uses the council.
 

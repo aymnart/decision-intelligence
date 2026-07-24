@@ -18,16 +18,16 @@ See `AI_COUNCIL.md`.
 
 # Purpose
 
-This document defines the codebase architecture for the AI Engineering Operating System.
+This document defines the codebase architecture for the Decision Intelligence Engine.
 
 The project must be modular, scalable, and maintainable.
 
 The architecture separates:
 
-- Core intelligence (Decision Intelligence Engine)
-- Council assembly
+- Decision Intelligence Engine core
+- Council assembly (AI Council)
 - AI orchestration
-- Decision making
+- Consensus / debate
 - Memory
 - Execution
 - External integrations
@@ -58,7 +58,7 @@ Recommended tooling:
 # Repository Structure
 
 ```
-ai-engineering-os/
+decision-intelligence/
 
 │
 ├── apps/

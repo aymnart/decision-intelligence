@@ -8,9 +8,11 @@ Version: 2.0
 
 Yes. This is the correct architecture direction.
 
+The product is the **Decision Intelligence Engine** (`decision-intelligence`).
+
 AI Council is not a fixed group of experts.
 
-It is a **Dynamic Council Assembly Engine**.
+It is a **Dynamic Council Assembly Engine** inside this product.
 
 The core intelligence is:
 
@@ -22,7 +24,7 @@ See `AI_COUNCIL.md` for the full product vision, permanent experts, expert inter
 
 # Overview
 
-The AI Engineering Operating System is composed of independent layers.
+The Decision Intelligence Engine is composed of independent layers.
 
 Every layer has exactly one responsibility.
 

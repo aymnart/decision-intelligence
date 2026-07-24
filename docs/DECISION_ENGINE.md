@@ -1,4 +1,4 @@
-# Decision Engine Specification
+# Decision Intelligence Engine Specification
 
 Version: 2.0
 
@@ -8,9 +8,9 @@ Version: 2.0
 
 Yes. This is the correct architecture direction.
 
-The Decision Engine is a **Decision Intelligence Engine**.
+This document specifies the **Decision Intelligence Engine** product (`decision-intelligence`).
 
-AI Council is not a fixed group of experts. It is a **Dynamic Council Assembly Engine**.
+AI Council is not a fixed group of experts. It is a **Dynamic Council Assembly Engine** inside this product.
 
 The core intelligence is:
 
@@ -26,7 +26,7 @@ See `AI_COUNCIL.md`.
 
 # Purpose
 
-The Decision Engine is the brain of the AI Engineering Operating System.
+The Decision Intelligence Engine is the brain of the system.
 
 It controls:
 

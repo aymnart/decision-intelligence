@@ -1,4 +1,4 @@
-# AI Engineering Operating System MVP Execution Plan
+# Decision Intelligence Engine MVP Execution Plan
 
 Version: 2.0
 
@@ -20,7 +20,7 @@ See `AI_COUNCIL.md`.
 
 # Purpose
 
-This document defines the exact execution plan for building the first usable version of the AI Engineering Operating System.
+This document defines the exact execution plan for building the first usable version of the Decision Intelligence Engine.
 
 The MVP goal is NOT to build an autonomous coding company.
 

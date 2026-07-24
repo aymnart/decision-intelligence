@@ -1,4 +1,4 @@
-# AI Engineering Operating System Implementation Roadmap
+# Decision Intelligence Engine Implementation Roadmap
 
 Version: 2.0
 
@@ -22,7 +22,7 @@ See `AI_COUNCIL.md`.
 
 # Purpose
 
-This document defines the development roadmap for building the AI Engineering Operating System.
+This document defines the development roadmap for building the Decision Intelligence Engine.
 
 The goal is to build the system progressively.
 

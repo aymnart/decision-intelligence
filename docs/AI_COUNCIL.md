@@ -14,7 +14,9 @@ The core intelligence is not the experts. The core intelligence is:
 
 > Given any objective, automatically create the optimal council, run reasoning, challenge assumptions, and produce a decision.
 
-The council is an **AI organization generator** — a general reasoning layer that other AI systems can plug into.
+The product is the **Decision Intelligence Engine**.
+
+The AI Council is the temporary expert organization it assembles — an **AI organization generator** other systems can call into.
 
 This direction is stronger than the original coding-only idea.
 
@@ -22,7 +24,7 @@ This direction is stronger than the original coding-only idea.
 
 # Purpose
 
-The AI Council is the intelligence layer of the AI Engineering Operating System.
+The AI Council is the Dynamic Council Assembly subsystem of the Decision Intelligence Engine.
 
 Its purpose is not to ship a static roster of personas.
 

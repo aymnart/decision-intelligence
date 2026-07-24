@@ -20,7 +20,7 @@ See `AI_COUNCIL.md`.
 
 # Purpose
 
-This document defines how the AI Engineering Operating System interacts with GitHub.
+This document defines how the Decision Intelligence Engine interacts with GitHub.
 
 GitHub is not just a code repository.
 
@@ -197,14 +197,14 @@ Example:
 ```
 Name:
 
-ai-engineering-os
+decision-intelligence
 
 
 Description:
 
-AI-powered engineering operating system
-using a Dynamic Council Assembly Engine
-and autonomous workflows.
+Decision Intelligence Engine —
+automatically assembles expert councils,
+debates, and returns high-quality decisions.
 
 
 Topics:
