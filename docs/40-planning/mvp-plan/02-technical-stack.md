@@ -38,25 +38,21 @@ Reports
 
 # Backend
 
-Use:
+MVP:
+
+Headless CLI (`apps/cli`), per [ADR-018](../../90-records/decisions/02-mvp-design.md#adr-018-the-mvp-is-a-headless-engine-with-a-cli).
+
+Phase 2 (Web App and API):
 
 ```
-Next.js API Routes
-
-or
-
-Separate Node.js API
+Hono in apps/api
 ```
-
-For MVP:
-
-Prefer Next.js full-stack.
 
 Reason:
 
-- faster development
-- fewer moving parts
-- easy deployment
+- lightweight and fast
+- framework-agnostic
+- easy deployment on Vercel Functions
 
 ---
 

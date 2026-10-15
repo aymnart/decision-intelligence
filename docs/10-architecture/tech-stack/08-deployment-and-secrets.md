@@ -8,7 +8,11 @@ Vercel
 
 Backend
 
-Vercel Functions (MVP)
+Local CLI (MVP, per [ADR-018](../../90-records/decisions/02-mvp-design.md#adr-018-the-mvp-is-a-headless-engine-with-a-cli))
+
+Phase 2 (Web App and API)
+
+Vercel Functions (Hono in `apps/api`)
 
 Future
 

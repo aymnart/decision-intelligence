@@ -2,7 +2,7 @@
 
 # Project Structure
 
-Recommended structure:
+The canonical monorepo layout and dependency direction are defined in [Project Structure](../../10-architecture/project-structure/01-purpose-and-repository.md#repository-structure) and [ADR-015](../../90-records/decisions/02-mvp-design.md#adr-015-repository-layout-and-dependency-direction). The sketch below shows where Eve components integrate when Phase 6 arrives:
 
 ```
 decision-intelligence/

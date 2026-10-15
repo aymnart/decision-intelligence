@@ -48,12 +48,7 @@ PostgreSQL.
 
 ORM:
 
-Choose through council.
-
-Possible:
-
-- Drizzle
-- Prisma
+Drizzle ORM (decided in [Data and Infrastructure](../tech-stack/05-data-and-infrastructure.md#orm) and [ADR-013](../../90-records/decisions/02-mvp-design.md#adr-013-mvp-database-schema); Prisma rejected).
 
 ---
 

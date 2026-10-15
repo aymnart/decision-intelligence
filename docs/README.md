@@ -26,6 +26,7 @@ How to read:
 | [40-planning/mvp-plan](40-planning/mvp-plan/README.md) | MVP definition, MVP stack and schema, sprints 1–7, MVP interface, success metrics |
 | [40-planning/tasks](40-planning/tasks/README.md) | Issue-level task list by phase |
 | [50-quality](50-quality/README.md) | Code quality, testing, AI output quality, prompts, security, performance, review, definition of done |
+| [20-design](20-design/README.md) | Design system, brand guidelines, and UX flows (roadmap Phase 2 web app) |
 | [90-records/decisions](90-records/decisions/README.md) | Architecture decision records with a status index |
 
 Not yet written (empty placeholders):
@@ -33,7 +34,6 @@ Not yet written (empty placeholders):
 - `00-product/`: `user-stories.md`
 - `10-architecture/`: `api-design.md` (HTTP API, roadmap Phase 2)
 - `20-design/`: `design-system.md`, `brand-guidelines.md`, `ux-flows.md` (web app, roadmap Phase 2)
-- `90-records/`: `tech-debt.md`
 
 ---
 
@@ -54,3 +54,4 @@ Not yet written (empty placeholders):
 | MVP CLI commands | `10-architecture/system-design.md#commands` |
 | Why something was decided | `90-records/decisions/README.md` |
 | What is still unconfirmed | `90-records/assumptions.md` |
+| Tracked technical debt | `90-records/tech-debt.md` |

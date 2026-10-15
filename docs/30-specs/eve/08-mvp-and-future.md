@@ -2,7 +2,11 @@
 
 # MVP Eve Implementation
 
-First version only requires durable execution of **built-in** experts assembled by the engine.
+Per [ADR-008](../../90-records/decisions/01-foundations.md#adr-008-defer-infrastructure-until-it-is-needed), [ADR-015](../../90-records/decisions/02-mvp-design.md#adr-015-repository-layout-and-dependency-direction), and [ADR-018](../../90-records/decisions/02-mvp-design.md#adr-018-the-mvp-is-a-headless-engine-with-a-cli), the MVP runs directly as a headless engine via `apps/cli` without the Eve runtime, external tools ([ADR-016](../../90-records/decisions/02-mvp-design.md#adr-016-mvp-security-baseline)), or workflow and artifact tables ([Database Design](../../10-architecture/database-design.md#not-in-the-mvp-schema)).
+
+The sections below specify the baseline design for when Eve integration arrives in [Phase 6](../../00-product/roadmap/07-phase-5-6-github-and-eve.md).
+
+First Eve implementation requires durable execution of **built-in** experts assembled by the engine.
 
 Do not implement user-customized Eve council members yet.
 
