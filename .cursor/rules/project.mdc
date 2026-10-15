@@ -1,0 +1,38 @@
+---
+description: What the Decision Intelligence Engine is, what the MVP includes, and the product rules every change must respect
+alwaysApply: true
+---
+
+# Project
+
+The **Decision Intelligence Engine** (`decision-intelligence`) is the product. For any objective it assembles a temporary council of experts (the **AI Council**, built by the **Dynamic Council Assembly Engine**), runs debate and weighted voting, and returns an explained decision that is stored as memory.
+
+It is not a coding agent, a chat interface, or a Cursor, Claude Code, or Copilot clone.
+
+Current phase: the **MVP**, roadmap Phase 1, the Autonomous Council Builder. It must prove that an automatically generated council beats a single AI. The MVP is a headless engine with a CLI (`apps/cli`); the web app and API come in Phase 2 (ADR-018).
+
+# Rules
+
+- Check `docs/00-product/mvp-scope.md` before building anything. If the task needs an out-of-scope item (web app, HTTP API, accounts, user-customized councils, custom experts, Eve agents as council members, GitHub automation, code generation, project planning, complex memory), stop and say so.
+- Check the ADR index in `docs/90-records/decisions/README.md` before proposing anything that changes an accepted decision. Changing one needs a new ADR, not a silent override.
+- Never invent product decisions. Ask, or record the gap in `docs/90-records/assumptions.md` as `Unconfirmed`.
+- Every feature that needs a decision calls the engine. Never embed decision logic inside a workflow, route, or UI component.
+- In the MVP the engine alone picks the council. Never add a way for users to choose, add, or remove experts.
+- Keep the engine independent of web frameworks, AI providers, and Eve. Reach them only through adapters.
+- Think before coding: confirm the work fits the architecture and accepted decisions, then implement.
+- Prefer boring, mature technology. Be explicit: no magic, no hidden state, one responsibility per file.
+- Cite requirement IDs (`FR-`, `NFR-`) from `docs/00-product/requirements.md` in plans and pull requests when they apply.
+
+# Example
+
+Request: "Let users pick which experts join the council."
+
+❌ Add an expert picker to the submit form.
+
+✅ Reply that ADR-004 rules out user-chosen councils in the MVP, and that custom experts arrive in roadmap Phase 2.5.
+
+# Detail
+
+- Vision and principles: `docs/00-product/vision/01-vision-and-mission.md`, `02-principles.md`
+- MVP scope and requirements: `docs/00-product/mvp-scope.md`, `requirements.md`
+- How a decision runs: `docs/10-architecture/system-design.md`

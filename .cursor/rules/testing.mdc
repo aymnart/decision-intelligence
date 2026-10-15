@@ -1,0 +1,41 @@
+---
+description: What to test, at which level, and how to keep AI-dependent tests deterministic
+globs: **/*.test.ts,**/*.test.tsx,tests/**
+alwaysApply: false
+---
+
+# Levels
+
+| Level | Tool | Covers |
+| --- | --- | --- |
+| Unit | Vitest | Business logic, decision calculations, scoring, Zod validators |
+| Integration | Vitest | Adapters against the real thing: `database` against PostgreSQL, `ai` against a provider |
+| Workflow | Vitest | A full engine run from submission to `STORED`, `FAILED`, or `REJECTED` |
+| End to end | Vitest | Run the built CLI against a test database and a fake provider: `decide`, `approve`, `reject`, `resume`, `show`, `eval` |
+
+Playwright joins for the web app in Phase 2 (ADR-018).
+
+# Rules
+
+- Colocate unit and integration tests as `*.test.ts` next to the code. Put end-to-end tests in `tests/`.
+- Unit and workflow tests never call a real model. Pass a fake `AIProvider` that returns fixed, schema-valid output.
+- Provider integration tests are opt-in by environment variable, so CI and local runs stay free and deterministic by default.
+- Test the database through real PostgreSQL (a local container or a Neon branch), never a mocked client. Run migrations first.
+- Always cover the critical paths: decision classification, expert selection, council composition per impact level, consensus calculation, memory retrieval, and run recovery.
+- Every failure mode in `docs/10-architecture/system-design.md#failure-modes` has a workflow test: invalid model output, partial expert failure, interrupted run and `resume`, database unavailable, pending and rejected approval.
+- Every model-output schema has a test showing it rejects malformed output.
+- Assert on behavior and stored results, not on prompt wording or call order.
+- When fixing a bug, first add a test that fails without the fix.
+- Coverage percentage is not a goal. An untested critical path blocks the pull request.
+
+# Example
+
+❌ A consensus test that calls the real model and asserts `agreement > 0.5`.
+
+✅ A consensus test that feeds 5 fixed votes (4 for, 1 against, known weights) into the scoring function and asserts the exact agreement value.
+
+# Detail
+
+- `docs/50-quality/03-testing.md`
+- Critical tests and build order: `docs/10-architecture/project-structure/08-dependencies-testing-order.md`
+- Test tools: `docs/10-architecture/tech-stack/07-tooling-and-ci.md`

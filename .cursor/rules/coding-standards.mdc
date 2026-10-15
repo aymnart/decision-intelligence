@@ -1,0 +1,43 @@
+---
+description: TypeScript, naming, function, error-handling, and configuration standards for all TypeScript code
+globs: **/*.ts,**/*.tsx
+alwaysApply: false
+---
+
+# Types
+
+- Keep `strict`, `noImplicitAny`, `exactOptionalPropertyTypes`, and `noUncheckedIndexedAccess` on. Never loosen them per file.
+- Never use `any`. Use `unknown` and narrow it.
+- Give exported functions explicit parameter and return types.
+- Validate every external input (HTTP bodies, model output, env vars, files) with Zod at the boundary. Derive the type from the schema with `z.infer` instead of declaring it twice.
+- Prefer `readonly` fields and arrays. Never mutate arguments.
+
+# Functions and modules
+
+- One responsibility per file, one job per function. Split long functions instead of commenting their sections.
+- Name by intent, verb plus noun: `calculateConsensusScore`, not `process`, `handleData`, or `manager`.
+- Prefer pure functions and composition. No inheritance hierarchies for behavior.
+- Define the interface before the implementation, and pass dependencies in as parameters.
+- No hardcoded business rules. Impact thresholds, council limits, and weights live in named constants or configuration in `core`.
+- Never duplicate a prompt, an expert definition, or a schema. Import the single source.
+
+# Errors
+
+- Throw typed errors that extend a shared base error and carry context (`decisionId`, `expertId`, stage). Never throw strings or a bare `Error`.
+- The message says what failed and why. Mark whether the error is retryable.
+- Never swallow an error. Handle it, or log it with context and rethrow.
+
+# Tooling
+
+- Biome formats and lints. Don't hand-format, and don't disable a rule inline without saying which constraint requires it.
+
+# Example
+
+❌ `throw Error("failed")`
+
+✅ `throw new DecisionExecutionError("Consensus generation failed", { decisionId, expertId, retryable: true })`
+
+# Detail
+
+- `docs/50-quality/02-code-quality.md`, `docs/00-product/vision/03-project-and-code-rules.md`
+- Compiler settings: `docs/10-architecture/tech-stack/02-foundation.md`

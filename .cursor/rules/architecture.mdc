@@ -1,0 +1,41 @@
+---
+description: Package boundaries, dependency direction, and decision-pipeline rules for code in apps/, packages/, and experts/
+globs: apps/**,packages/**,experts/**
+alwaysApply: false
+---
+
+# Where code goes
+
+Layout and dependency direction are fixed by ADR-015, amended by ADR-018 (CLI-first MVP). Package responsibilities: `docs/10-architecture/project-structure/`.
+
+- `packages/core`: domain types and ports (`AIProvider`, `DecisionRepository`, ...). Depends only on `shared`.
+- `decision-engine` → `council`, `consensus`, `memory`: engine logic. Depend on `core`, never the reverse direction.
+- `ai`, `database`, `observability`: adapters that implement `core` ports. Depend only on `core` and `shared`.
+- `apps/cli`: the MVP's composition root. Parses commands, wires adapters into the engine, prints output. Holds no business logic.
+- `apps/api` and `apps/web` arrive in roadmap Phase 2. Do not create them in the MVP.
+
+# Rules
+
+- Never import adapters, provider SDKs, CLI code, Hono, Next.js, Inngest, or Eve from engine packages. Accept `core` interfaces as parameters instead.
+- Store each stage's output before starting the next, so `resume` can continue any interrupted run.
+- Call models only through `AIProvider`. Provider SDKs are imported only inside `packages/ai`.
+- No circular dependencies between packages.
+- Do not create post-MVP packages (`planner`, `executor`, `workflows`, `github`, `eve`, `security`, `agents/`) before their roadmap phase.
+- Keep the pipeline order: classify, load context, assemble council, analyze, debate, vote, consensus, approve, store. Skip a stage only where the impact level says so (no debate for low impact, approval only for high); never reorder or bypass one otherwise.
+- Pass typed objects between stages, never raw strings. Validate every model output with a Zod schema before it is stored.
+- Put each expert's prompt in `experts/<domain>/<expert>/SYSTEM.md` and pipeline prompts in `packages/prompts`. No prompt text inline in code.
+- Run independent experts in parallel. Start debate only after every opinion is in or has failed.
+- Compute weighted agreement in code. Models write reasoning, not numbers.
+- Follow `docs/10-architecture/database-design.md` for schema: decision child rows are insert-only, foreign keys never cascade deletes.
+
+# Example
+
+❌ `packages/council` imports `@ai-sdk/openai` and calls the model directly.
+
+✅ `packages/council` takes an `AIProvider` from `core` as a parameter; `apps/cli` passes in the real adapter, and tests pass a fake.
+
+# Detail
+
+- Run lifecycle, failures, limits: `docs/10-architecture/system-design.md`
+- Components and pipeline: `docs/10-architecture/system/README.md`
+- Dependency rules and build order: `docs/10-architecture/project-structure/08-dependencies-testing-order.md`

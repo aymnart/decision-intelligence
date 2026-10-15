@@ -1,0 +1,50 @@
+---
+description: Secrets, authentication and authorization, untrusted model input, logging, and dangerous-operation rules
+globs: apps/**,packages/**,experts/**,**/.env*
+alwaysApply: false
+---
+
+# Secrets
+
+- Never hardcode keys or tokens, and never commit `.env` files. `.env.example` lists variable names with no values.
+- Read secrets from environment variables, only in the app's configuration (`apps/cli` in the MVP) and the adapters that need them (`packages/ai`, `packages/database`).
+- Never log, return, or store secrets, session tokens, or provider keys.
+
+# Authentication and authorization
+
+The MVP CLI runs as one local operator with no accounts. These rules apply from the web app in Phase 2 (ADR-018); don't add accounts before then.
+
+- Every `apps/api` route requires a Better Auth session, except the auth routes themselves.
+- Scope every decision read and write to the session user. Repositories take the user id as a parameter, so a missing check cannot compile.
+- Return not-found, not forbidden, for another user's decision, so ids don't leak.
+- Only the decision's owner can approve or reject it.
+- Rate-limit submissions (20 per user per day, ADR-014) and auth routes.
+
+# AI input and output
+
+- Treat the user's question, user-typed context, and every model output as untrusted data. Pass them as delimited content, never concatenated into system prompts.
+- Validate model output with Zod before another expert, the database, or the UI sees it.
+- Grant experts no tools in the MVP. When tools arrive with execution, each expert's `TOOLS.md` lists the minimum it needs.
+- Render model output as escaped text or sanitized Markdown. Never inject it as raw HTML.
+
+# Data and logs
+
+- Store only what a decision needs. No personal data in the MVP; from Phase 2, nothing beyond the account email.
+- Treat files written by `eval` as decision data: keep them out of Git.
+- Log ids, stages, token counts, and latency. Never log the full question, context, or prompt bodies.
+
+# Dangerous operations
+
+- Ask the user before deleting files or data, running migrations against a shared database, deploying, or adding an unvetted dependency (ADR-007).
+
+# Example
+
+❌ A route runs `select * from decision where id = $1` with the id from the URL.
+
+✅ The route calls `decisionRepository.findForUser(decisionId, session.user.id)` and returns 404 when it gets nothing.
+
+# Detail
+
+- Decisions behind these rules: ADR-016 in `docs/90-records/decisions/02-mvp-design.md`
+- `docs/50-quality/06-security.md`, `docs/00-product/vision/07-operations.md`
+- Secrets handling: `docs/10-architecture/tech-stack/08-deployment-and-secrets.md`

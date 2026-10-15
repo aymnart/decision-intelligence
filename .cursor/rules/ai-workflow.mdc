@@ -1,0 +1,22 @@
+---
+description: How to navigate and maintain the split docs/ folder without reading long files
+alwaysApply: true
+---
+
+# Reading docs
+
+Project context lives in `docs/`, split into short topic files.
+
+1. Start at `docs/README.md` (folder map + quick lookup).
+2. Open the relevant folder's `README.md`; its Contents table lists every file and the sections it covers.
+3. Open only the file(s) needed for the task. Do not read whole folders.
+
+Example: "how are council experts selected?" → `docs/README.md` → `docs/30-specs/ai-council/README.md` → `07-council-assembly.md`.
+
+# Writing docs
+
+- Keep each file under ~250 lines.
+- When a file grows past that, turn it into a folder: `README.md` (title, intro, Contents table) plus numbered parts like `01-topic.md`, split at `#` headings.
+- Start every part file with `> Part of [<Spec title>](README.md).`
+- When adding, renaming, or removing a part, update the folder's Contents table and, if it's a new folder, the map in `docs/README.md`.
+- Link to other docs with relative paths to the folder `README.md` or the specific part, never to old flat names like `AI_COUNCIL.md`.
